@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<form action="{% url 'blog:edit_action' %}" method="post">
+    {% csrf_token %}
+    {% if h1 %}
+    <input type="hidden" name="article_id" value="{{h1.id}}">
+        <label for="">
+            page title<input type="text" name="title" value="{{h1.title}}">
+        </label>
+        <br>
+        <label for="">
+            page content<input type="text" name="content" value="{{h1.content}}">
+        </label>
+    {% else %}
+        <input type="hidden" name="article_id" value="0">
+        <label for="">
+            page title<input type="text" name="title">
+        </label>
+        <br>
+        <label for="">
+            page content<input type="text" name="content">
+        </label>
+    {% endif %}
+    <br>
+    <p><input type="submit" name="" id=""></p>
+</form>
+
+
+</body>
+</html>
